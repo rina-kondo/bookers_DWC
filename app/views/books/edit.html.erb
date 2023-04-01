@@ -1,0 +1,38 @@
+<% content_for :css do %>
+    <%= stylesheet_link_tag 'books' %>
+<% end %>
+
+<div class="error-box">
+    <% if @book.errrors.any? %>
+      <%= @book.errors.count %> error prohibited this book from being saved:
+      <ul>
+        <% @list.errors.full_messages.each do |msg| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+</div>
+
+<div id="container">
+  <h1>Editing Book</h1>
+
+  <%= form_with model: @book do |f| %>
+    <div class="input-box">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div class="input-box">
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </div>
+
+    <div class="action">
+      <%= f.submit 'Update Book' %>
+    </div>
+
+  <% end %>
+
+  <%= link_to "Show", book_path(@book.id) %>
+  <sapn>|</span>
+  <%= link_to "Back", books_path %>
+</div>

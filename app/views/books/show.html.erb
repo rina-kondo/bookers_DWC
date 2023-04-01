@@ -1,0 +1,19 @@
+<% content_for :css do %>
+    <%= stylesheet_link_tag 'books' %>
+<% end %>
+
+<%= flash[:sucsess] %>
+
+<div id="container">
+  <p>
+    <strong>Title: </strong><%= @book.title %>
+  </p>
+
+  <p>
+    <strong>Body: </strong><%= @book.body %>
+  </p>
+
+  <%= link_to "Edit", edit_book_path(@book.id) %>
+  <sapn>|</span>
+  <%= link_to "Back", books_path %>
+</div>
