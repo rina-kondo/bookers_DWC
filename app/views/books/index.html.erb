@@ -25,35 +25,5 @@
     <% end %>
   </table>
 
-<!--param is missing or the value is empty: books-->
-<!--Parameters:-->
-<!--{"authenticity_token"=>"[FILTERED]", "book"=>{"title"=>"test", "body"=>"test"}, "commit"=>"Create Book"}-->
 
-  <h2>New Book</h2>
-
-  <div class="error-box">
-    <% if @book.errors.any? %>
-      <%= @book.errors.count %> error prohibited this book from being saved:
-      <ul>
-        <% @book.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
-  </div>
-
-  <%= form_with model: @book, url: book_path, method: :post do |f| %>
-    <div class="input-box">
-      <%= f.label :title %>
-      <%= f.text_field :title %>
-    </div>
-
-    <div class="input-box">
-      <%= f.label :body %>
-      <%= f.text_area :body %>
-    </div>
-
-    <%= f.submit 'Create Book' %>
-
-  <% end %>
 </div>

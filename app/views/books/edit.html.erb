@@ -3,7 +3,7 @@
 <% end %>
 
 <div class="error-box">
-    <% if @book.errrors.any? %>
+    <% if @book.errors.any? %>
       <%= @book.errors.count %> error prohibited this book from being saved:
       <ul>
         <% @list.errors.full_messages.each do |msg| %>
