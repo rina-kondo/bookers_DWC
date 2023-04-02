@@ -2,19 +2,20 @@
     <%= stylesheet_link_tag 'books' %>
 <% end %>
 
-<div class="error-box">
-    <% if @book.errors.any? %>
-      <%= @book.errors.count %> error prohibited this book from being saved:
+<div id="container">
+
+  <h1>Editing Book</h1>
+
+  <% if @book.errors.any? %>
+    <div class="error-box">
+      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
       <ul>
-        <% @list.errors.full_messages.each do |msg| %>
+        <% @book.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
-    <% end %>
-</div>
-
-<div id="container">
-  <h1>Editing Book</h1>
+    </div>
+  <% end %>
 
   <%= form_with model: @book do |f| %>
     <div class="input-box">

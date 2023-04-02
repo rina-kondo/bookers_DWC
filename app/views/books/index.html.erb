@@ -26,4 +26,31 @@
   </table>
 
 
+  <h2 class="caption">New book</h2>
+  <% if @book.errors.any? %>
+    <div class="error-box">
+      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
+      <ul>
+        <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_with model: @book, url: books_path, method: :post do |f| %>
+    <div class="input-box">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+
+    <div class="input-box">
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </div>
+
+    <%= f.submit 'Create Book' %>
+
+  <% end %>
+
 </div>

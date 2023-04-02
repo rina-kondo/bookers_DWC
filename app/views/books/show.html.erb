@@ -1,11 +1,11 @@
-<%= flash[:notice] %>
 
 <% content_for :css do %>
     <%= stylesheet_link_tag 'books' %>
 <% end %>
 
-
 <div id="container">
+  <p id="notice"><%= flash[:notice] %></p>
+
   <p>
     <strong>Title: </strong><%= @book.title %>
   </p>
